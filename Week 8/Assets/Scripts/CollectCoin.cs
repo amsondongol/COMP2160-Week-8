@@ -8,9 +8,8 @@ public class CollectCoin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Scorekeeper.instance.Pickup();
             Destroy(gameObject);
-
         }
-
     }
 }
