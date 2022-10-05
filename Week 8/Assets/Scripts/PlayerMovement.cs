@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField] float speed = 2.0f;
-    [SerializeField] int playerType=0;
+    [SerializeField] private float speed = 2.0f;
+    private int playerType=0;
 
     private PlayerAxis playerAxis;
 
