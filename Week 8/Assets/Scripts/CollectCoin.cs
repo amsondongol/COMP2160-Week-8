@@ -6,9 +6,9 @@ public class CollectCoin : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.TryGetComponent(out PlayerMovement p))
         {
-            Scorekeeper.instance.Pickup();
+            Scorekeeper.instance.Pickup(p.PlayerType);
             Destroy(gameObject);
         }
     }

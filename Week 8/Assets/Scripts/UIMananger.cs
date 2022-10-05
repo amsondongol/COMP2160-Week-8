@@ -8,7 +8,7 @@ public class UIMananger : MonoBehaviour
 {
     public static UIMananger instance;
 
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI[] playerScoreTexts;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,9 @@ public class UIMananger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = $"SCORE: {Scorekeeper.instance.Score}";
+        for (int i = 0; i < playerScoreTexts.Length; i++)
+        {
+            playerScoreTexts[i].text = $"SCORE:  {Scorekeeper.instance.GetScore(i)}";
+        }
     }
 }

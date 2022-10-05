@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float speed = 2.0f;
     [SerializeField] int playerType=0;
+
+    private PlayerAxis playerAxis;
+
     public int PlayerType
     {
         get
@@ -27,23 +30,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerType == 1)
-        {
-             horizontal = Input.GetAxis("Horizontal");
-             vertical = Input.GetAxis("Vertical");
-       }
-
-        if (playerType == 2)
-        {
-             horizontal = Input.GetAxis("Horizontal2");
-            vertical = Input.GetAxis("Vertical2");
-        }
+        horizontal = Input.GetAxis(playerAxis.horizontalAxis);
+        vertical = Input.GetAxis(playerAxis.verticalAxis);
 
         transform.position += new Vector3(horizontal, 0, vertical) * Time.deltaTime * speed;
     }
 
-    public void SetPlayerType(int type)
+    public void SetPlayerType(int type, PlayerAxis playerAxis)
     {
         playerType = type;
+        this.playerAxis = playerAxis;
     }
 }
